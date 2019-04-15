@@ -1,8 +1,8 @@
 {
     "development": {
         "config_id": "development",
-        "app_name": "my app",
-        "app_desc": "my app desc",
+        "app_name": "Mulitroom chat",
+        "app_desc": "aplicativo de chat",
         "node_port": 3000,
         "json_indentation": 4,
         "database": "my-app-db-dev"
