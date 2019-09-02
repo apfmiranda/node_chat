@@ -9,7 +9,9 @@ module.exports.iniciaChat = function(app,req, res) {
     if (erros) {
         res.render('index', {validacao: erros});
         return;
-    }   
+    } 
+    
+    app.get('io').emit('msgParaCliente', 'teste');
 
     res.render('chat');
 }

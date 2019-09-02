@@ -10,6 +10,19 @@ process.env.NODE_ENV = 'development';
 // config variables
 const config = require('./config/config.js');
 
-app.listen(global.gConfig.node_port, () => {
+var server = app.listen(global.gConfig.node_port, () => {
     console.log(`${global.gConfig.app_name} listening on port ${global.gConfig.node_port}`);
 });
+
+var io = require('socket.io').listen(server);
+
+app.set('io', io);
+
+// criar conexao por websocket
+io.on('connection', (socket) => {
+    console.log('Usuário conectou!!');
+
+    socket.on('disconnect', () => {
+        console.log('Usuario desconectou!');
+    })
+})
